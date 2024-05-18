@@ -1,6 +1,6 @@
-# OCR for Akkadian Latin Transliteration
+# CuReD: Deep Learning Optical Character Recognition for Cuneiform Text Editions and Legacy Materials
 
-This repository contains code for generating data and training OCR on Latin transliteration of ancient Akkadian texts, using the [Kraken OCR](http://kraken.re/master/index.html) framework.
+This repository contains code for generating data and training OCR on Latin transliteration of Cuneiform texts trained on editions of Akkadian and Sumerian texts, using the [Kraken OCR](http://kraken.re/master/index.html) framework.
 
 ## Requirements
 
