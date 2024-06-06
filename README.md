@@ -2,6 +2,8 @@
 
 Cuneiform documents, the earliest known form of writing, are prolific textual sources of the ancient past. Experts publish editions of these texts in transliteration using specialized typesetting, but most remain inaccessible for computational analysis in traditional printed books or legacy materials. Off-the-shelf OCR systems are insufficient for digitization without adaptation. We present CuReD (Cuneiform Recognition-Documents), a deep learning-based human-in-the-loop OCR pipeline based on the [Kraken OCR model](https://github.com/mittagessen/kraken) for digitizing scanned transliterations of cuneiform texts. CuReD has a character error rate of 9\% on clean data and 11\% on representative scans. We digitized a challenging sample of cuneiform documents and index cards from the University of Pennsylvania Museum, demonstrating the feasibility of our platform for enabling computational analysis and bolstering machine-readable cuneiform text datasets. Our results show that such an OCR platform allows new insights into ancient records and supports the digitization of cuneiform texts across various ancient languages. This repository contains code for generating data and training OCR on Latin transliteration of Cuneiform texts trained on editions of Akkadian and Sumerian texts.
 
+The model can be used through the code and instructions in this repository, or through a GUI at the [Babylonian Engine portal](https://ben-digpasts.com/cured).
+
 ## Requirements
 
 * [Kraken](https://github.com/mittagessen/kraken) installed as follows:
@@ -33,7 +35,7 @@ Using the following values:
 
 ## Models
 
-The `models/` folder contains fine-tuned OCR models. We recommend `model.mlmodel` for general use. `dillard.mlmodel` was fine-tuned on typewriter text in Dillard (1975) and might perform better in that use case.
+The `models/` folder contains fine-tuned OCR models. `model.mlmodel` is the original model trained on [SAA](https://oracc.museum.upenn.edu/saao/) and tested on [RINAP](https://oracc.museum.upenn.edu/rinap/) texts. `dillard.mlmodel` was fine-tuned on typewriter text in Dillard (1975)[^1] and might perform better in that use case. `latest.mlmodel` was further fine-tuned on the card catalog of the [lexicography index card collection of Pennsylvania Sumerian Dictionary](https://doi.org/10.5282/ubm/data.417) by Å. W. Sjöberg.
 
 ## Tests
 
@@ -42,3 +44,5 @@ In `tests/`, we have provided a sample paragraph (`test.png`, from Dietrich 2003
 ## Fine-Tuning Model
 
 For instructions on fine-tuning the existing model on new data, see `Finetuning.md`.
+
+[^1]: Raymond B. Dillard (1975) Neo-babylonian Texts from the John Frederick Lewis Collection of the Free Library of Philadelphia, PhD dissertation, available at <https://repository.upenn.edu/dropsietheses/141/>
