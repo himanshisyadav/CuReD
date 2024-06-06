@@ -33,16 +33,22 @@ Using the following values:
 
 **Note:** In the output text, we use a single left curly brace { to indicate a superscript, which is significant in the common transliteration of Akkadian. We recommend to post-process by adding } after every character which is preceeded by {. For example, "{dAMAR.UTU" should be converted to "{d}AMAR.UTU".
 
-## Models
-
-The `models/` folder contains fine-tuned OCR models. `model.mlmodel` is the original model trained on [SAA](https://oracc.museum.upenn.edu/saao/) and tested on [RINAP](https://oracc.museum.upenn.edu/rinap/) texts. `dillard.mlmodel` was fine-tuned on typewriter text in Dillard (1975)[^1] and might perform better in that use case. `latest.mlmodel` was further fine-tuned on the card catalog of the [lexicography index card collection of Pennsylvania Sumerian Dictionary](https://doi.org/10.5282/ubm/data.417) by Å. W. Sjöberg.
-
-## Tests
-
-In `tests/`, we have provided a sample paragraph (`test.png`, from Dietrich 2003) and OCR results of the default model in `output.txt`. You may run OCR on it and verify that you get the same output.
-
 ## Fine-Tuning Model
 
 For instructions on fine-tuning the existing model on new data, see `Finetuning.md`.
+
+## Repository Structure
+
+### Models
+
+The `models/` folder contains fine-tuned OCR models. `model.mlmodel` is the original model trained on [SAA](https://oracc.museum.upenn.edu/saao/) and tested on [RINAP](https://oracc.museum.upenn.edu/rinap/) texts. `dillard.mlmodel` was fine-tuned on typewriter text in Dillard (1975)[^1] and might perform better in that use case. `latest.mlmodel` was further fine-tuned on the card catalog of the [lexicography index card collection of Pennsylvania Sumerian Dictionary](https://doi.org/10.5282/ubm/data.417) by Å. W. Sjöberg.
+
+### Tests
+
+In `tests/`, we have provided a sample paragraph (`test.png`, from Dietrich 2003) and OCR results of the default model in `output.txt`. You may run OCR on it and verify that you get the same output.
+
+### Data
+
+Under `data/`, we share all texts from Dillard (1975)[^1] OCR'ed using CuReD and manually corrected. The texts are shared in transliteration and in Unicode cuneiform. We also share a sample of the cards already digitized from the [lexicography index card collection of Pennsylvania Sumerian Dictionary](https://doi.org/10.5282/ubm/data.417) using CuRe.
 
 [^1]: Raymond B. Dillard (1975) Neo-babylonian Texts from the John Frederick Lewis Collection of the Free Library of Philadelphia, PhD dissertation, available at <https://repository.upenn.edu/dropsietheses/141/>
