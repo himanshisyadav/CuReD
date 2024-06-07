@@ -49,6 +49,6 @@ In `tests/`, we have provided a sample paragraph (`test.png`, from Dietrich 2003
 
 ### Data
 
-Under `data/`, we share all texts from Dillard (1975)[^1] OCR'ed using CuReD and manually corrected. The texts are shared in transliteration and in Unicode cuneiform. We also share a sample of the cards already digitized from the [lexicography index card collection of Pennsylvania Sumerian Dictionary](https://doi.org/10.5282/ubm/data.417) using CuRe.
+Under `data/`, we share all texts from Dillard (1975)[^1] OCR'ed using CuReD and manually corrected. The texts are shared in transliteration and in Unicode cuneiform. We also share a sample of the cards already digitized from the [lexicography index card collection of Pennsylvania Sumerian Dictionary](https://doi.org/10.5282/ubm/data.417) using CuReD and manually corrected by our team.
 
 [^1]: Raymond B. Dillard (1975) Neo-babylonian Texts from the John Frederick Lewis Collection of the Free Library of Philadelphia, PhD dissertation, available at <https://repository.upenn.edu/dropsietheses/141/>
