@@ -18,7 +18,6 @@ echo "Job ID: $SLURM_JOB_ID"
 echo "Job Name: $SLURM_JOB_NAME"
 echo "Node List: $SLURM_JOB_NODELIST"
 echo "Number of Nodes: $SLURM_JOB_NUM_NODES"
-echo "Number of Tasks: $SLURM_NTASKS"
 echo "CPUs per Task: $SLURM_CPUS_PER_TASK"
 echo "Memory per Node: $SLURM_MEM_PER_NODE"
 echo "Partition: $SLURM_JOB_PARTITION"
@@ -40,10 +39,30 @@ export LD_LIBRARY_PATH=/project/rcc/hyadav/lipvips-8.18.0/lib64:$LD_LIBRARY_PATH
 # Set pkg-config path 
 export PKG_CONFIG_PATH=/project/rcc/hyadav/lipvips-8.18.0/lib64/pkgconfig:$PKG_CONFIG_PATH
 
+MODEL_PATH="../models/dillard.mlmodel"
+OUTPUT_DIR="../data/CAD/predictions"
+
+# Extract the model name without the extension
+MODEL_NAME=$(basename "$MODEL_PATH" | cut -d. -f1)
+
+# Create a directory for each model
+MODEL_PREDICTIONS_DIR="$OUTPUT_DIR/$MODEL_NAME"
+
+# Check if the directory exists
+if [ -d "$MODEL_PREDICTIONS_DIR" ]; then
+  echo "Directory already exists: $MODEL_PREDICTIONS_DIR"
+else
+  # If it doesn't exist, create it
+  mkdir -p "$MODEL_PREDICTIONS_DIR"
+  echo "Created directory: $MODEL_PREDICTIONS_DIR"
+fi
+
+INPUT_DIR="/project/rcc/hyadav/CuReD/data/CAD/split_pages"
+
 # Run kraken OCR on each page
 for page in {37..43}; do
     echo "Processing page $page"
-    kraken -i /project/rcc/hyadav/CuReD/data/CAD/split_pages/page-$(printf "%03d" $page).png -o .txt binarize segment ocr -m ../models/latest.mlmodel
+    kraken -i "$INPUT_DIR/page-$(printf "%03d" $page).png" $MODEL_PREDICTIONS_DIR/page-$(printf "%03d" $page).txt binarize segment ocr -m $MODEL_PATH
 done
 
 echo "All pages processed!"
